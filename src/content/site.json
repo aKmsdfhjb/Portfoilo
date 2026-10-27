@@ -1,0 +1,87 @@
+{
+  "name": "Er. Nayan Kuikel",
+  "role": "Civil Engineer · Structural Specialist & Estimator",
+  "location": "Kathmandu, Nepal",
+  "email": "er.nayankuikel@gmail.com",
+  "phone": "+977-9861969107",
+  "projects": [
+    {
+      "title": "Modern 2.5-storey residence",
+      "type": "Residential construction",
+      "detail": "RCC structural coordination, drawing review, seismic-code awareness and MEP coordination.",
+      "image": "/images/projects/project-01.jpg",
+      "alt": "Residential building construction site"
+    },
+    {
+      "title": "Structural rehabilitation & interior renewal",
+      "type": "Renovation and retrofitting",
+      "detail": "Condition review, identification of structural concerns, retrofit coordination and practical space improvements.",
+      "image": "/images/projects/project-02.jpg",
+      "alt": "Building rehabilitation work"
+    },
+    {
+      "title": "Quantity surveying & cost planning",
+      "type": "Cost engineering",
+      "detail": "Quantity take-offs, bills of quantities, material schedules and labour-informed cost estimates.",
+      "image": "",
+      "alt": ""
+    },
+    {
+      "title": "Site supervision & quality control",
+      "type": "Project execution",
+      "detail": "Daily progress tracking, subcontractor coordination, reinforcement checks and concrete-work quality observations.",
+      "image": "",
+      "alt": ""
+    }
+  ],
+  "experience": [
+    {
+      "dates": "Dec 2024 — Present",
+      "role": "Site Engineer · Contract",
+      "org": "Department of Urban Development and Building Construction (DUDBC)",
+      "detail": "Technical supervision, quality control, site coordination and compliance with applicable Nepal Building Code and DUDBC requirements."
+    },
+    {
+      "dates": "Nov 2024 — Dec 2025",
+      "role": "Estimator",
+      "org": "SkillSewa",
+      "detail": "Construction quantity take-offs, cost estimation and project documentation."
+    },
+    {
+      "dates": "Sep 2024 — Nov 2024",
+      "role": "Inspection Engineer",
+      "org": "SkillSewa",
+      "detail": "Property inspection, site observations and clear technical reporting."
+    }
+  ],
+  "skills": [
+    "Structural engineering",
+    "Structural analysis & design",
+    "Site supervision",
+    "Quantity surveying & BoQ",
+    "Cost estimation",
+    "Quality control",
+    "Seismic retrofitting",
+    "Forensic engineering",
+    "Building renovation",
+    "AutoCAD",
+    "ETABS",
+    "NBC / DUDBC compliance",
+    "Material take-offs",
+    "Stakeholder coordination"
+  ],
+  "socialLinks": [
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/nayan-kuikel-379b43323/"
+    },
+    {
+      "label": "Facebook",
+      "url": "https://www.facebook.com/nayan.kuikel"
+    },
+    {
+      "label": "WhatsApp",
+      "url": "https://wa.me/9779848506672"
+    }
+  ]
+}
