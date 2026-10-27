@@ -9,29 +9,29 @@
       "title": "Modern 2.5-storey residence",
       "type": "Residential construction",
       "detail": "RCC structural coordination, drawing review, seismic-code awareness and MEP coordination.",
-      "image": "/images/projects/section-b-b.svg",
-      "alt": "Temporary structural drawing placeholder labelled Section B-B; replace with approved project photograph"
+      "image": "/images/projects/residential-rcc.svg",
+      "alt": "Residential RCC elevation"
     },
     {
       "title": "Structural rehabilitation & interior renewal",
       "type": "Renovation and retrofitting",
       "detail": "Condition review, identification of structural concerns, retrofit coordination and practical space improvements.",
-      "image": "/images/projects/section-b-b.svg",
-      "alt": "Temporary structural drawing placeholder labelled Section B-B; replace with approved project photograph"
+      "image": "/images/projects/rehabilitation.svg",
+      "alt": "Structural rehabilitation frame"
     },
     {
       "title": "Quantity surveying & cost planning",
       "type": "Cost engineering",
       "detail": "Quantity take-offs, bills of quantities, material schedules and labour-informed cost estimates.",
-      "image": "/images/projects/section-b-b.svg",
-      "alt": "Temporary structural drawing placeholder labelled Section B-B; replace with approved project photograph"
+      "image": "/images/projects/quantity-surveying.svg",
+      "alt": "Quantity take-off grid sheet"
     },
     {
       "title": "Site supervision & quality control",
       "type": "Project execution",
       "detail": "Daily progress tracking, subcontractor coordination, reinforcement checks and concrete-work quality observations.",
-      "image": "/images/projects/section-b-b.svg",
-      "alt": "Temporary structural drawing placeholder labelled Section B-B; replace with approved project photograph"
+      "image": "/images/projects/site-supervision.svg",
+      "alt": "Site supervision and QC detail"
     }
   ],
   "experience": [
