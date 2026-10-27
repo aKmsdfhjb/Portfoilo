@@ -18,19 +18,9 @@ export default function Home() {
           <div><strong>M.Eng.</strong><span>Structural engineering · candidate</span></div>
         </div>
       </div>
-      <div className="hero-visual" role="img" aria-label="Architectural linework inspired by a structural drawing">
-        <div className="drawing-top"><span>FIELD NOTES / 01</span><span>KTM · NP</span></div>
-        <svg className="structure-drawing" viewBox="0 0 520 580" fill="none" aria-hidden="true">
-          <g stroke="currentColor" strokeWidth="1.15">
-            <path d="M75 482V167L260 66L445 167V482M75 167H445M75 272H445M75 377H445M168 116V482M260 66V482M352 116V482"/>
-            <path d="M75 167L168 116L260 167L352 116L445 167M75 272L168 221L260 272L352 221L445 272M75 377L168 326L260 377L352 326L445 377"/>
-            <path d="M58 482H463M58 495H463M61 482V495M460 482V495M75 152H445M75 146V158M445 146V158"/>
-            <path d="M92 183V255M185 183V255M277 183V255M369 183V255M92 288V360M185 288V360M277 288V360M369 288V360M92 393V465M185 393V465M277 393V465M369 393V465" strokeDasharray="4 6" opacity=".7"/>
-          </g>
-          <g stroke="#C46A45" strokeWidth="2"><path d="M75 272H445M260 66V482"/><circle cx="260" cy="272" r="5" fill="#C46A45"/></g>
-          <g fill="currentColor" fontFamily="monospace" fontSize="10" opacity=".8"><text x="75" y="137">GRID A</text><text x="225" y="52">SECTION B-B</text><text x="75" y="516">STRUCTURAL STUDY</text><text x="374" y="516">N° 001</text><text x="25" y="280" transform="rotate(-90 25 280)">LEVEL +3.20</text></g>
-        </svg>
-        <div className="drawing-caption"><span>STRUCTURE / DETAIL</span><span>01 — 04</span></div>
+      <div className="hero-visual hero-profile">
+        <img className="hero-profile-photo" src="/images/nayan-kuikel.jpeg" alt="Er. Nayan Kuikel in the Himalayas" fetchPriority="high" />
+        <div className="profile-photo-label"><span>ER. NAYAN KUIKEL</span><span>KATHMANDU · NEPAL</span></div>
       </div>
       <div className="hero-index"><span>01</span><span>ENGINEERING / PEOPLE / PLACE</span><span>SCROLL TO EXPLORE ↓</span></div>
     </section>
