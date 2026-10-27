@@ -1,20 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const projects = [
-  { number: '01', title: 'Modern 2.5-storey residence', type: 'Residential construction', detail: 'RCC structural coordination, drawing review, seismic-code awareness and MEP coordination.', image: '/images/projects/project-01.jpg', alt: 'Residential building construction site' },
-  { number: '02', title: 'Structural rehabilitation & interior renewal', type: 'Renovation and retrofitting', detail: 'Condition review, identification of structural concerns, retrofit coordination and practical space improvements.', image: '/images/projects/project-02.jpg', alt: 'Building rehabilitation work' },
-  { number: '03', title: 'Quantity surveying & cost planning', type: 'Cost engineering', detail: 'Quantity take-offs, bills of quantities, material schedules and labour-informed cost estimates.', image: '', alt: '' },
-  { number: '04', title: 'Site supervision & quality control', type: 'Project execution', detail: 'Daily progress tracking, subcontractor coordination, reinforcement checks and concrete-work quality observations.', image: '', alt: '' }
-];
-
-const experience = [
-  { dates: 'Dec 2024 — Present', role: 'Site Engineer · Contract', org: 'Department of Urban Development and Building Construction (DUDBC)', detail: 'Technical supervision, quality control, site coordination and compliance with applicable Nepal Building Code and DUDBC requirements.' },
-  { dates: 'Nov 2024 — Dec 2025', role: 'Estimator', org: 'SkillSewa', detail: 'Construction quantity take-offs, cost estimation and project documentation.' },
-  { dates: 'Sep 2024 — Nov 2024', role: 'Inspection Engineer', org: 'SkillSewa', detail: 'Property inspection, site observations and clear technical reporting.' }
-];
-
-const skills = ['Structural engineering', 'Structural analysis & design', 'Site supervision', 'Quantity surveying & BoQ', 'Cost estimation', 'Quality control', 'Seismic retrofitting', 'Forensic engineering', 'Building renovation', 'AutoCAD', 'ETABS', 'NBC / DUDBC compliance', 'Material take-offs', 'Stakeholder coordination'];
-
+import site from '../content/site.json';
 export default function Home() {
   return <main id="top">
     <section className="hero section-wrap">
@@ -55,7 +41,7 @@ export default function Home() {
 
     <section id="projects" className="section-wrap projects-section">
       <div className="section-heading"><div><p className="section-kicker">02 / SELECTED WORK</p><h2>From plan<br />to <em>place.</em></h2></div><p className="heading-note">A selection of project types and responsibilities across residential construction, rehabilitation, estimating and site delivery.</p></div>
-      <div className="project-list">{projects.map((project) => <article className="project-row" key={project.number}>
+      <div className="project-list">{site.projects.map((project) => <article className="project-row" key={project.number}>
         <div className="project-number">{project.number}</div>
         <div className="project-image">{project.image ? <img src={project.image} alt={project.alt} onError={(e) => { e.currentTarget.style.display = 'none'; }} /> : null}<span className="image-placeholder"><span>NK / SITE RECORD</span><span>{project.number}</span></span></div>
         <div className="project-copy"><p className="project-type">{project.type}</p><h3>{project.title}</h3><p>{project.detail}</p><span className="project-note">Project summary · Representative experience</span></div>
@@ -66,11 +52,11 @@ export default function Home() {
 
     <section id="experience" className="experience-section"><div className="section-wrap experience-grid">
       <div className="experience-heading"><p className="section-kicker">03 / EXPERIENCE</p><h2>On site.<br /><em>In detail.</em></h2><p className="body-copy">A practical foundation in inspections, estimating and public-sector site engineering.</p></div>
-      <div className="timeline">{experience.map((item) => <article className="timeline-item" key={item.role}><p className="timeline-date">{item.dates}</p><div><h3>{item.role}</h3><p className="timeline-org">{item.org}</p><p className="timeline-detail">{item.detail}</p></div></article>)}</div>
+      <div className="timeline">{site.experience.map((item) => <article className="timeline-item" key={item.role}><p className="timeline-date">{item.dates}</p><div><h3>{item.role}</h3><p className="timeline-org">{item.org}</p><p className="timeline-detail">{item.detail}</p></div></article>)}</div>
     </div></section>
 
     <section id="about" className="section-wrap about-section"><div className="about-top"><p className="section-kicker">04 / ABOUT NAYAN</p><p className="about-statement">I’m a civil engineer and structural engineering postgraduate candidate, based in Kathmandu. I work across site supervision, structural coordination and construction estimating, with a focus on dependable, code-aware delivery.</p></div>
-      <div className="skills-layout"><h2>Areas of<br /><em>practice.</em></h2><div className="skill-list">{skills.map((skill, i) => <span key={skill}><small>{String(i + 1).padStart(2, '0')}</small>{skill}</span>)}</div></div>
+      <div className="skills-layout"><h2>Areas of<br /><em>practice.</em></h2><div className="skill-list">{site.skills.map((skill, i) => <span key={skill}><small>{String(i + 1).padStart(2, '0')}</small>{skill}</span>)}</div></div>
     </section>
 
     <section className="tools-band"><div className="section-wrap tools-callout"><div><p className="section-kicker">05 / FIELD UTILITIES</p><h2>Useful tools.<br /><em>Clear answers.</em></h2><p className="body-copy">Quick calculations for common civil engineering workflows, including Nepali land units, triangle area and concrete quantities.</p></div><Link className="button button-light" to="/tools">Open engineering tools <span aria-hidden="true">↗</span></Link></div></section>
