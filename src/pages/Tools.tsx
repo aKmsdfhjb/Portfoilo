@@ -23,6 +23,16 @@ export default function Tools() {
   const [mix, setMix] = useState<'M15'|'M20'>('M20');
 
   const sqm = numberValue(area);
+  const hillRopani = sqm >= 0 && Number.isFinite(sqm) ? Math.floor(sqm / LAND.ropani) : 0;
+  const hillRem1 = sqm - hillRopani * LAND.ropani;
+  const hillAana = Math.floor(hillRem1 / LAND.aana);
+  const hillRem2 = hillRem1 - hillAana * LAND.aana;
+  const hillPaisa = Math.floor(hillRem2 / LAND.paisa);
+  const hillDam = (hillRem2 - hillPaisa * LAND.paisa) / LAND.dam;
+  const teraiBigha = sqm >= 0 && Number.isFinite(sqm) ? Math.floor(sqm / LAND.bigha) : 0;
+  const teraiRem1 = sqm - teraiBigha * LAND.bigha;
+  const teraiKattha = Math.floor(teraiRem1 / LAND.kattha);
+  const teraiDhur = (teraiRem1 - teraiKattha * LAND.kattha) / LAND.dhur;
   const sideA = numberValue(a), sideB = numberValue(b), sideC = numberValue(c);
   const triangleValid = validPositive(sideA, sideB, sideC) && sideA + sideB > sideC && sideA + sideC > sideB && sideB + sideC > sideA;
   const triangleArea = useMemo(() => { if (!triangleValid) return 0; const s=(sideA+sideB+sideC)/2; return Math.sqrt(s*(s-sideA)*(s-sideB)*(s-sideC)); },[triangleValid,sideA,sideB,sideC]);
@@ -49,7 +59,7 @@ export default function Tools() {
         {(!Number.isFinite(sqm)||sqm<0) && <p className="error-note">Enter a valid, non-negative area.</p>}
         <p className="tool-note">Common reference values: 1 ropani ≈ 508.737 m²; 1 bigha ≈ 6,772.63 m². Local records and legal survey definitions should take precedence.</p>
       </div>
-      <div className="result-panel"><h3>Hill / Valley system</h3><p className="result-value">{sqm>=0&&Number.isFinite(sqm)?Math.floor(sqm/LAND.ropani):'—'} <small>ropani</small></p><div className="result-row"><span>Aana</span><strong>{sqm>=0&&Number.isFinite(sqm)?fmt((sqm%LAND.ropani)/LAND.aana,3):'—'}</strong></div><div className="result-row"><span>Square feet</span><strong>{sqm>=0&&Number.isFinite(sqm)?fmt(sqm*LAND.sqFt):'—'} ft²</strong></div><h3 style={{marginTop:28}}>Terai system</h3><div className="result-row"><span>Bigha</span><strong>{sqm>=0&&Number.isFinite(sqm)?Math.floor(sqm/LAND.bigha):'—'}</strong></div><div className="result-row"><span>Kattha</span><strong>{sqm>=0&&Number.isFinite(sqm)?fmt((sqm%LAND.bigha)/LAND.kattha,3):'—'}</strong></div><div className="result-row"><span>Dhur</span><strong>{sqm>=0&&Number.isFinite(sqm)?fmt((sqm%LAND.kattha)/LAND.dhur,3):'—'}</strong></div><p className="tool-note">Approximate decimal equivalents are shown for quick reference, not for boundary determination.</p></div>
+      <div className="result-panel"><h3>Hill / Valley system</h3><p className="result-value">{sqm>=0&&Number.isFinite(sqm)?hillRopani:'—'} <small>ropani</small></p><div className="result-row"><span>Aana</span><strong>{sqm>=0&&Number.isFinite(sqm)?hillAana:'—'}</strong></div><div className="result-row"><span>Paisa</span><strong>{sqm>=0&&Number.isFinite(sqm)?hillPaisa:'—'}</strong></div><div className="result-row"><span>Daam</span><strong>{sqm>=0&&Number.isFinite(sqm)?fmt(hillDam,3):'—'}</strong></div><div className="result-row"><span>Square feet</span><strong>{sqm>=0&&Number.isFinite(sqm)?fmt(sqm*LAND.sqFt):'—'} ft²</strong></div><h3 style={{marginTop:28}}>Terai system</h3><div className="result-row"><span>Bigha</span><strong>{sqm>=0&&Number.isFinite(sqm)?teraiBigha:'—'}</strong></div><div className="result-row"><span>Kattha</span><strong>{sqm>=0&&Number.isFinite(sqm)?teraiKattha:'—'}</strong></div><div className="result-row"><span>Dhur</span><strong>{sqm>=0&&Number.isFinite(sqm)?fmt(teraiDhur,3):'—'}</strong></div><p className="tool-note">Approximate decimal equivalents are shown for quick reference, not for boundary determination.</p></div>
     </section>}
     {tab==='triangle' && <section className="tool-panel" aria-label="Triangle area calculator">
       <div><p className="section-kicker">HERON'S FORMULA</p><h2>Triangulate a plot</h2><p className="body-copy">Use three measured side lengths to calculate the area of a valid triangle. This estimates one triangular section, not an entire irregular parcel.</p><Field label="Side A" unit="m" value={a} onChange={setA}/><Field label="Side B" unit="m" value={b} onChange={setB}/><Field label="Side C" unit="m" value={c} onChange={setC}/>{!triangleValid&&<p className="error-note">Use positive lengths that satisfy the triangle inequality: the sum of any two sides must exceed the third.</p>}</div>
