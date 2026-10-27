@@ -6,7 +6,6 @@
   "phone": "+977-9861969107",
   "projects": [
     {
-      "number": "01",
       "title": "Modern 2.5-storey residence",
       "type": "Residential construction",
       "detail": "RCC structural coordination, drawing review, seismic-code awareness and MEP coordination.",
@@ -14,7 +13,6 @@
       "alt": "Residential building construction site"
     },
     {
-      "number": "02",
       "title": "Structural rehabilitation & interior renewal",
       "type": "Renovation and retrofitting",
       "detail": "Condition review, identification of structural concerns, retrofit coordination and practical space improvements.",
@@ -22,7 +20,6 @@
       "alt": "Building rehabilitation work"
     },
     {
-      "number": "03",
       "title": "Quantity surveying & cost planning",
       "type": "Cost engineering",
       "detail": "Quantity take-offs, bills of quantities, material schedules and labour-informed cost estimates.",
@@ -30,7 +27,6 @@
       "alt": ""
     },
     {
-      "number": "04",
       "title": "Site supervision & quality control",
       "type": "Project execution",
       "detail": "Daily progress tracking, subcontractor coordination, reinforcement checks and concrete-work quality observations.",
