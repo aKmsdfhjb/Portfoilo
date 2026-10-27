@@ -6,5 +6,5 @@ import Footer from './components/Footer';
 import './revamp.css';
 
 export default function App() {
-  return <BrowserRouter><div className="site-shell"><Navbar /><Routes><Route path="/" element={<Home />} /><Route path="/tools" element={<Tools />} /><Route path="*" element={<Home />} /></Routes><Footer /></div></BrowserRouter>;
+  return <BrowserRouter basename={import.meta.env.BASE_URL}><div className="site-shell"><Navbar /><Routes><Route path="/" element={<Home />} /><Route path="/tools" element={<Tools />} /><Route path="*" element={<Home />} /></Routes><Footer /></div></BrowserRouter>;
 }
