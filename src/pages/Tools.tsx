@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-type ToolTab = 'land' | 'triangle' | 'concrete';
+type ToolTab = 'land' | 'triangle' | 'concrete' | 'masonry' | 'slab';
 const LAND = { sqFt: 10.7639104167, ropani: 508.737, aana: 31.7960625, paisa: 7.949015625, dam: 1.98725390625, bigha: 6772.63, kattha: 338.6315, dhur: 16.931575 };
 const numberValue = (value: string) => value.trim() === '' ? 0 : Number(value);
 const validPositive = (...values: number[]) => values.every(v => Number.isFinite(v) && v > 0);
@@ -21,6 +21,13 @@ export default function Tools() {
   const [width, setWidth] = useState('4');
   const [depth, setDepth] = useState('0.15');
   const [mix, setMix] = useState<'M15'|'M20'>('M20');
+  const [brickLength, setBrickLength] = useState('5');
+  const [brickHeight, setBrickHeight] = useState('3');
+  const [wallThickness, setWallThickness] = useState('0.23');
+  const [mortar, setMortar] = useState('10');
+  const [slabArea, setSlabArea] = useState('100');
+  const [slabThickness, setSlabThickness] = useState('125');
+  const [waste, setWaste] = useState('5');
 
   const sqm = numberValue(area);
   const hillRopani = sqm >= 0 && Number.isFinite(sqm) ? Math.floor(sqm / LAND.ropani) : 0;
@@ -44,6 +51,15 @@ export default function Tools() {
   const cement = dry/sum/0.0347;
   const sand = dry*ratio[1]/sum*35.3147;
   const aggregate = dry*ratio[2]/sum*35.3147;
+  const wallL=numberValue(brickLength), wallH=numberValue(brickHeight), wallT=numberValue(wallThickness), mortarPct=numberValue(mortar);
+  const wallValid=validPositive(wallL,wallH,wallT)&&Number.isFinite(mortarPct)&&mortarPct>=0&&mortarPct<100;
+  const wallVolume=wallValid?wallL*wallH*wallT:0;
+  const brickCount=wallValid?Math.ceil(wallVolume*500*(1-mortarPct/100)):0;
+  const mortarVolume=wallValid?wallVolume*mortarPct/100:0;
+  const areaSlab=numberValue(slabArea), thickMm=numberValue(slabThickness), wastePct=numberValue(waste);
+  const slabValid=validPositive(areaSlab,thickMm)&&Number.isFinite(wastePct)&&wastePct>=0&&wastePct<=30;
+  const slabVol=slabValid?areaSlab*thickMm/1000:0;
+  const slabOrder=slabVol*(1+wastePct/100);
 
   return <main id="top" className="tools-page section-wrap">
     <p className="section-kicker">FIELD UTILITIES / 01</p>
@@ -53,6 +69,8 @@ export default function Tools() {
       <button role="tab" aria-selected={tab==='land'} onClick={()=>setTab('land')}>01 / Land units</button>
       <button role="tab" aria-selected={tab==='triangle'} onClick={()=>setTab('triangle')}>02 / Triangulation</button>
       <button role="tab" aria-selected={tab==='concrete'} onClick={()=>setTab('concrete')}>03 / Concrete quantities</button>
+      <button role="tab" aria-selected={tab==='masonry'} onClick={()=>setTab('masonry')}>04 / Brick masonry</button>
+      <button role="tab" aria-selected={tab==='slab'} onClick={()=>setTab('slab')}>05 / Slab concrete</button>
     </div>
     {tab==='land' && <section className="tool-panel" aria-label="Nepal land unit converter">
       <div><p className="section-kicker">AREA CONVERSION</p><h2>Nepali land units</h2><p className="body-copy">Enter an area in square metres to see its equivalent in the Hill / Valley and Terai systems.</p><Field label="Area" unit="m²" value={area} onChange={setArea} />
@@ -68,6 +86,14 @@ export default function Tools() {
     {tab==='concrete' && <section className="tool-panel" aria-label="Concrete quantity estimator">
       <div><p className="section-kicker">PRELIMINARY TAKE-OFF</p><h2>Concrete quantity estimate</h2><p className="body-copy">Estimate volume and indicative material quantities for a simple rectangular pour.</p><Field label="Length" unit="m" value={length} onChange={setLength}/><Field label="Width" unit="m" value={width} onChange={setWidth}/><Field label="Depth / thickness" unit="m" value={depth} onChange={setDepth} step="0.01"/><label className="tool-field"><span>Nominal mix assumption</span><select value={mix} onChange={e=>setMix(e.target.value as 'M15'|'M20')}><option value="M15">M15 · 1 : 2 : 4</option><option value="M20">M20 · 1 : 1.5 : 3</option></select></label><p className="tool-note">The selected ratios are nominal estimating assumptions, not a substitute for a specified or laboratory-designed concrete mix.</p></div>
       <div className="result-panel"><h3>Indicative materials</h3><p className="result-value">{concreteValid?fmt(wet,3):'—'} <small>m³ wet volume</small></p><div className="result-row"><span>Dry volume allowance (× 1.54)</span><strong>{concreteValid?fmt(dry,3):'—'} m³</strong></div><div className="result-row"><span>Cement (approx. 50 kg bags)</span><strong>{concreteValid?fmt(cement,1):'—'} bags</strong></div><div className="result-row"><span>Sand</span><strong>{concreteValid?fmt(sand):'—'} ft³</strong></div><div className="result-row"><span>Coarse aggregate</span><strong>{concreteValid?fmt(aggregate):'—'} ft³</strong></div>{!concreteValid&&<p className="error-note">All dimensions must be positive numbers.</p>}<p className="tool-note">Planning estimate only. Actual yield, wastage, aggregate moisture, batching method and mix design change quantities. Do not use this calculator for structural design or to approve a mix.</p></div>
+    </section>}
+    {tab==='masonry' && <section className="tool-panel" aria-label="Brick masonry quantity estimator">
+      <div><p className="section-kicker">MASONRY TAKE-OFF</p><h2>Brick wall estimate</h2><p className="body-copy">A rough wall-volume estimator using a configurable mortar allowance. Openings, bond, actual brick size and site wastage must be accounted for separately.</p><Field label="Wall length" unit="m" value={brickLength} onChange={setBrickLength}/><Field label="Wall height" unit="m" value={brickHeight} onChange={setBrickHeight}/><Field label="Wall thickness" unit="m" value={wallThickness} onChange={setWallThickness}/><Field label="Mortar volume allowance" unit="%" value={mortar} onChange={setMortar} step="1" min="0"/>{!wallValid&&<p className="error-note">Enter positive dimensions and a mortar allowance from 0 to less than 100 percent.</p>}</div>
+      <div className="result-panel"><h3>Indicative quantities</h3><p className="result-value">{wallValid?fmt(wallVolume,3):'—'} <small>m³ gross wall volume</small></p><div className="result-row"><span>Brick count (nominal 500/m³ before mortar)</span><strong>{wallValid?brickCount.toLocaleString('en-US'):'—'} pcs</strong></div><div className="result-row"><span>Mortar allowance</span><strong>{wallValid?fmt(mortarVolume,3):'—'} m³</strong></div><p className="tool-note">Planning approximation only. Replace the nominal brick factor with actual brick and joint dimensions, deduct openings, and verify mortar quantities with the project specification.</p></div>
+    </section>}
+    {tab==='slab' && <section className="tool-panel" aria-label="Concrete slab estimator">
+      <div><p className="section-kicker">SLAB TAKE-OFF</p><h2>Slab concrete volume</h2><p className="body-copy">Calculate geometric slab volume and a selectable ordering allowance. This does not design slab reinforcement or confirm structural adequacy.</p><Field label="Plan area" unit="m²" value={slabArea} onChange={setSlabArea}/><Field label="Thickness" unit="mm" value={slabThickness} onChange={setSlabThickness} step="5"/><Field label="Ordering allowance" unit="%" value={waste} onChange={setWaste} step="1" min="0"/>{!slabValid&&<p className="error-note">Enter positive area and thickness; allowance must be between 0 and 30 percent.</p>}</div>
+      <div className="result-panel"><h3>Concrete order estimate</h3><p className="result-value">{slabValid?fmt(slabVol,3):'—'} <small>m³ net volume</small></p><div className="result-row"><span>Ordering allowance</span><strong>{slabValid?fmt(slabVol*wastePct/100,3):'—'} m³</strong></div><div className="result-row"><span>Indicative order quantity</span><strong>{slabValid?fmt(slabOrder,3):'—'} m³</strong></div><p className="tool-note">Confirm openings, beams, drops, pumping loss and drawings before ordering. Concrete grade and mix design must be specified by the responsible engineer.</p></div>
     </section>}
     <div className="tool-bottom"><Link className="text-link" to="/">← Back to portfolio</Link><span className="tool-note">Calculations stay in this browser session.</span></div>
   </main>;
