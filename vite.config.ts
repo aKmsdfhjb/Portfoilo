@@ -9,7 +9,8 @@ const __dirname = path.dirname(__filename);
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/Portfoilo/',
+  // GitHub Pages serves from a project subpath; Vercel serves from the domain root.
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/Portfoilo/' : '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
