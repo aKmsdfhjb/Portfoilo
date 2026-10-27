@@ -10,28 +10,32 @@
       "type": "Residential construction",
       "detail": "RCC structural coordination, drawing review, seismic-code awareness and MEP coordination.",
       "image": "/images/projects/residential-rcc.svg",
-      "alt": "Residential RCC elevation"
+      "alt": "Residential RCC elevation",
+      "number": "01"
     },
     {
       "title": "Structural rehabilitation & interior renewal",
       "type": "Renovation and retrofitting",
       "detail": "Condition review, identification of structural concerns, retrofit coordination and practical space improvements.",
       "image": "/images/projects/rehabilitation.svg",
-      "alt": "Structural rehabilitation frame"
+      "alt": "Structural rehabilitation frame",
+      "number": "02"
     },
     {
       "title": "Quantity surveying & cost planning",
       "type": "Cost engineering",
       "detail": "Quantity take-offs, bills of quantities, material schedules and labour-informed cost estimates.",
       "image": "/images/projects/quantity-surveying.svg",
-      "alt": "Quantity take-off grid sheet"
+      "alt": "Quantity take-off grid sheet",
+      "number": "03"
     },
     {
       "title": "Site supervision & quality control",
       "type": "Project execution",
       "detail": "Daily progress tracking, subcontractor coordination, reinforcement checks and concrete-work quality observations.",
       "image": "/images/projects/site-supervision.svg",
-      "alt": "Site supervision and QC detail"
+      "alt": "Site supervision and QC detail",
+      "number": "04"
     }
   ],
   "experience": [
