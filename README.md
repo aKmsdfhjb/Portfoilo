@@ -27,6 +27,7 @@ npm run build
 - `src/pages/Home.tsx` — portfolio layout and sections
 - `src/pages/Tools.tsx` — land conversion, triangle area and concrete quantity estimates
 - `src/revamp.css` — typography, layout and responsive styling
+- `vite.config.ts` — standard split JS/CSS assets so the strict script policy can remain enabled
 - `public/_headers` — security response headers for static hosts that support the Netlify-style headers file
 - `.github/workflows/portfolio-checks.yml` — build and production dependency audit workflow
 
