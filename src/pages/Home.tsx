@@ -16,7 +16,7 @@ const experience = [
 const skills = ['Structural engineering', 'Structural analysis & design', 'Site supervision', 'Quantity surveying & BoQ', 'Cost estimation', 'Quality control', 'Seismic retrofitting', 'Forensic engineering', 'Building renovation', 'AutoCAD', 'ETABS', 'NBC / DUDBC compliance', 'Material take-offs', 'Stakeholder coordination'];
 
 export default function Home() {
-  return <main>
+  return <main id="top">
     <section className="hero section-wrap">
       <div className="hero-copy">
         <p className="availability"><span className="availability-dot" /> Kathmandu, Nepal <span className="dot-separator">/</span> Civil engineering</p>
