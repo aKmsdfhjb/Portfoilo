@@ -5,12 +5,12 @@ export default function Home() {
   return <main id="top">
     <section className="hero section-wrap">
       <div className="hero-copy">
-        <p className="availability"><span className="availability-dot" /> Kathmandu, Nepal <span className="dot-separator">/</span> Civil engineering</p>
+        <p className="availability"><span className="availability-dot" /> {site.location} <span className="dot-separator">/</span> Civil engineering</p>
         <h1>Engineering that<br /><em>stands up</em> to scrutiny.</h1>
         <p className="hero-intro">I’m Er. Nayan Kuikel, a civil engineer focused on structural work, construction quality and practical cost planning. I bring design intent closer to what gets built on site.</p>
         <div className="hero-actions">
           <a className="button button-dark" href="#projects">Explore selected work <span aria-hidden="true">↘</span></a>
-          <a className="text-link" href="mailto:er.nayankuikel@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+          <a className="text-link" href={'mailto:' + site.email}>Get in touch <span aria-hidden="true">↗</span></a>
         </div>
         <div className="hero-facts">
           <div><strong>2024</strong><span>Field experience since</span></div>
@@ -61,6 +61,6 @@ export default function Home() {
 
     <section className="tools-band"><div className="section-wrap tools-callout"><div><p className="section-kicker">05 / FIELD UTILITIES</p><h2>Useful tools.<br /><em>Clear answers.</em></h2><p className="body-copy">Quick calculations for common civil engineering workflows, including Nepali land units, triangle area and concrete quantities.</p></div><Link className="button button-light" to="/tools">Open engineering tools <span aria-hidden="true">↗</span></Link></div></section>
 
-    <section id="contact" className="section-wrap contact-section"><p className="section-kicker">06 / CONTACT</p><div className="contact-grid"><h2>Let’s talk<br />about the <em>work.</em></h2><div className="contact-details"><p>For engineering opportunities, project coordination or professional enquiries, you can reach me directly.</p><a className="email-link" href="mailto:er.nayankuikel@gmail.com">er.nayankuikel@gmail.com <span>↗</span></a><a href="tel:+9779861969107">+977 986-196-9107</a><div className="social-links"><a href="https://www.linkedin.com/in/nayan-kuikel-379b43323/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.facebook.com/nayan.kuikel" target="_blank" rel="noreferrer">Facebook ↗</a><a href="https://wa.me/9779848506672" target="_blank" rel="noreferrer">WhatsApp ↗</a></div></div></div></section>
+    <section id="contact" className="section-wrap contact-section"><p className="section-kicker">06 / CONTACT</p><div className="contact-grid"><h2>Let’s talk<br />about the <em>work.</em></h2><div className="contact-details"><p>For engineering opportunities, project coordination or professional enquiries, you can reach me directly.</p><a className="email-link" href={'mailto:' + site.email}>{site.email} <span>↗</span></a><a href={'tel:' + site.phone.replace(/[^+\\d]/g, '')}>{site.phone}</a><div className="social-links">{site.socialLinks.map((social) => <a key={social.label} href={social.url} target="_blank" rel="noreferrer">{social.label} ↗</a>)}</div></div></div></section>
   </main>;
 }
