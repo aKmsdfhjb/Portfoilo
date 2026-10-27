@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+<rect width="900" height="620" fill="#f1eee7"/>
+<g fill="none" stroke="#343b38" stroke-width="2">
+<path d="M120 475V185L450 80L780 185V475M120 185H780M120 285H780M120 380H780"/>
+<path d="M210 156V475M330 118V475M450 80V475M570 118V475M690 156V475"/>
+<path d="M120 285L210 250L330 285L450 250L570 285L690 250L780 285" stroke="#b66c4b" stroke-width="3"/>
+<path d="M90 475H810M90 490H810M120 170H780M120 163V178M780 163V178" stroke-width="1"/>
+<path d="M145 205V265M235 205V265M355 205V265M475 205V265M595 205V265M715 205V265M145 305V360M235 305V360M355 305V360M475 305V360M595 305V360M715 305V360" stroke-dasharray="5 7" opacity=".55"/>
+</g>
+<g fill="#343b38" font-family="monospace" font-size="15"><text x="120" y="145">GRID A</text><text x="392" y="56" font-size="20">SECTION B-B</text><text x="120" y="530">STRUCTURAL STUDY / ELEVATION</text><text x="690" y="530">DETAIL 01</text><text x="40" y="335" transform="rotate(-90 40 335)">LEVEL +3.20</text></g>
+<g fill="#b66c4b"><circle cx="450" cy="285" r="6"/><path d="M450 285L510 230" stroke="#b66c4b" stroke-width="2" fill="none"/><circle cx="510" cy="230" r="4"/></g>
+<g stroke="#343b38" stroke-width="1" opacity=".35"><path d="M60 80H840M60 560H840M60 80V560M840 80V560"/></g>
+</svg>
