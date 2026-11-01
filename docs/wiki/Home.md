@@ -9,7 +9,7 @@ Run `npm ci`, `npm run dev` and `npm run build`. Edit verified content in `src/c
 ## Pages
 
 - [Architecture](Architecture.md)
-- [Repository README](../../README.md)
+- [Repository README](https://github.com/aKmsdfhjb/Portfoilo#readme)
 - [Source repository](https://github.com/aKmsdfhjb/Portfoilo)
 
 ## Scope and limitations
