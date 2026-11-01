@@ -59,3 +59,11 @@ flowchart TD
 ## GitHub Pages
 
 The repository already includes a GitHub Actions deployment workflow and Vite base-path handling for the project site. The live deployment should be checked in the Actions history before sharing a new release.
+
+
+## Project Wiki
+
+- [Wiki home](docs/wiki/Home.md)
+- [Architecture and deployment](docs/wiki/Architecture.md)
+
+The repository keeps a version-controlled wiki source under `docs/wiki/`.
