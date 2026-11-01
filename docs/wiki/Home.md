@@ -18,4 +18,3 @@ This guide describes the current repository. A static build does not automatical
 
 Keep credentials and private data out of public commits.
 
-- [Video production brief](https://github.com/aKmsdfhjb/Portfoilo/blob/main/docs/video/production-brief.md)
