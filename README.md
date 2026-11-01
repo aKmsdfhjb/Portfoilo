@@ -42,3 +42,20 @@ Nepali land-unit factors are approximate common references and local/legal surve
 ## Publishing
 
 Commit content and approved images, review the site, run the production build, then deploy the static output. The site itself cannot safely commit changes to GitHub from a visitor's browser without a separate authenticated publishing workflow.
+
+
+## Application architecture
+
+~~~mermaid
+flowchart TD
+ A[Visitor] --> B[React + Vite frontend]
+ B --> C[Portfolio pages and project gallery]
+ B --> D[Responsive project detail views]
+ E[Admin editor] --> F[Firebase Authentication]
+ F --> G[Firestore content records]
+ G --> B
+~~~
+
+## GitHub Pages
+
+The repository already includes a GitHub Actions deployment workflow and Vite base-path handling for the project site. The live deployment should be checked in the Actions history before sharing a new release.
